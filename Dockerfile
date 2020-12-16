@@ -3,7 +3,11 @@ FROM i386/alpine:latest
 ENV GLIB_VERSION=2.32-5.0
 ENV GLIB_ARCH=i686
 
+# Prepare own ld.so.conf
 ADD ./ld.so.conf ./tmp/ld.so.conf
+
+# Fix depedenciees
+RUN apk add --update --no-cache tzdata gd
 
 RUN apk add --update --no-cache wget tar zstd && \
     mkdir -p glibc-${GLIBC_VERSION} \
