@@ -1,6 +1,6 @@
 # x86-alpine-glibc
 
-A glibc 32 bit docker image for Alpine Linux.
+A glibc 32 bit docker image for Alpine Linux
 This time the Alpine itself is also 32 bit!
 
 Initial code by: https://github.com/vimalathithen/alpine-glibc-x86
