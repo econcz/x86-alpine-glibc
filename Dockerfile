@@ -1,5 +1,6 @@
-FROM i386/alpine:latest
+FROM econcz/x86-alpine-glibc:ish-import
 
+ENV ALPINE_VERSION=3.12
 ENV GLIB_VERSION=2.32-5.0
 ENV GLIB_ARCH=i686
 
@@ -7,7 +8,11 @@ ENV GLIB_ARCH=i686
 ADD ./ld.so.conf ./tmp/ld.so.conf
 
 # Fix depedenciees
-RUN apk add --update --no-cache tzdata gd
+RUN cp /etc/apk/repositories /tmp/repositories
+RUN echo "http://nl.alpinelinux.org/alpine/v${ALPINE_VERSION}/main/"      >  /etc/apk/repositories
+RUN echo "http://nl.alpinelinux.org/alpine/v${ALPINE_VERSION}/community/" >> /etc/apk/repositories
+RUN apk update
+RUN apk add --update --no-cache bash tzdata gd
 
 RUN apk add --update --no-cache wget tar zstd && \
     mkdir -p glibc-${GLIBC_VERSION} \
@@ -22,3 +27,6 @@ RUN apk add --update --no-cache wget tar zstd && \
     ln -s /usr/glibc/usr/lib/ld-linux.so.2 /lib/ld-linux.so.2  && \
     rm -Rf glibc-${GLIBC_VERSION} glibc-${GLIB_VERSION}-${GLIB_ARCH}.pkg.* && \
     apk del wget tar zstd
+
+RUN cp /tmp/repositories /etc/apk/repositories
+RUN rm -rf /tmp/*
