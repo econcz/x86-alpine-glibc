@@ -12,7 +12,7 @@ RUN cp /etc/apk/repositories /tmp/repositories
 RUN echo "http://nl.alpinelinux.org/alpine/v${ALPINE_VERSION}/main/"      >  /etc/apk/repositories
 RUN echo "http://nl.alpinelinux.org/alpine/v${ALPINE_VERSION}/community/" >> /etc/apk/repositories
 RUN apk update
-RUN apk add --update --no-cache bash tzdata gd
+RUN apk add --update --no-cache tzdata gd
 
 RUN apk add --update --no-cache wget tar zstd && \
     mkdir -p glibc-${GLIBC_VERSION} \
