@@ -1,7 +1,7 @@
 FROM econcz/x86-alpine-glibc:ish-import
 
-ENV ALPINE_VERSION=3.12
-ENV GLIB_VERSION=2.32-5.0
+ENV ALPINE_VERSION=3.14
+ENV GLIB_VERSION=2.35-6.0
 ENV GLIB_ARCH=i686
 
 # Prepare own ld.so.conf
