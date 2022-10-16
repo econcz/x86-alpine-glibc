@@ -1,6 +1,6 @@
 # x86-alpine-glibc
 
-A glibc 32-bit docker image for Alpine Linux built for https://ish.app (:ish-glibc-3.12 etc., the original iSH App image is :ish-import). This time the Alpine itself is also 32 bit!
+A glibc 32-bit docker image for Alpine Linux built for https://ish.app (:ish-glibc-3.14 etc., the original iSH App image is :ish-import). This time the Alpine itself is also 32 bit!
 
 Initial code by: https://github.com/vimalathithen/alpine-glibc-x86 URLs fixed, Alpine version upgraded, glibc version upgraded
 
